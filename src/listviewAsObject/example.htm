@@ -1,0 +1,88 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="jquery.listview.min.js"></script>
+    <script type="text/javascript" src="../addon/jquery.listView.formater.js"></script>
+    <script type="text/javascript" src="../addon/perfect-scrollbar-0.4.8.mousewheel.min.js"></script>
+    <link rel="stylesheet" href="../jquery.listview.css"/>
+    <link rel="stylesheet" href="../addon/perfect-scrollbar-0.4.8.min.css"/>
+    
+    <script type="text/javascript">
+        var item = function(id, value) {
+            this.id = id;
+            this.value = value;
+        };
+
+        $(function() {
+            var arrData = new Array();
+            for (var i = 0; i < 10; i++) {
+                arrData[i] = 'item ' + (i + 1);
+
+                var data = new item(i, 'item ' + (i + 1));
+                arrData[i] = data;
+            }
+
+            //var jsonString = JSON.stringify(arrData);
+            var optItems = [
+                { id: "id", width: 40},
+                { id: "value", width: 60, cssClass: "cell-title class2"}
+            ];
+
+            $('#listView').listView({
+                data: arrData,
+                optionItems: optItems,
+                pScrollEnable: false
+            });
+            
+            optItems = [
+                { id: "id", width: 40, formatter: ListView.Formatters.SpanDisplay },
+                { id: "value", width: 60, cssClass: "cell-title class2", formatter: ListView.Formatters.SpanDisplay }
+            ];
+            arrData = new Array();
+            for (var i = 0; i < 10; i++) {
+                var data = new item('a' + i, 'items ' + (i + 1));
+                arrData[i] = data;
+            }
+            $('#listView1').listView({
+                data: arrData,
+                optionItems: optItems,
+                pScrollEnable: true
+            });
+        });
+
+        function GetListItem() {
+            var rtnData = $('#listView').triggerHandler("getItem");
+            var rtnData2 = $('#listView1').triggerHandler("getItem");
+            var result = '';
+            if (rtnData)
+                result = rtnData.id + " : " + rtnData.value + "\n";
+            if (rtnData2)
+                result += rtnData2.id + " : " + rtnData2.value;
+
+            alert(result);
+
+            //$('#listView').triggerHandler('removeAll');
+        }
+    </script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="listView" style="width: 150px; height: 150px;"></div>
+    <div id="listView1" style="width: 150px; height: 150px;"></div>
+    <!--<div class="jListView" style="width: 150px; height: 150px;">
+        <div class="jListOption">item 1</div>
+        <div class="jListOption">itme 2</div>
+        <div class="jListOption">itme 3</div>
+        <div class="jListOption">itme 4</div>
+        <div class="jListOption">itme 5</div>
+        <div class="jListOption">itme 6</div>
+        <div class="jListOption">itme 7</div>
+    </div>-->
+    
+    
+    <button type="button" onclick="GetListItem()">Get List Item</button>
+</body>
+</html>

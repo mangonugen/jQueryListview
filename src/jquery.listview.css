@@ -1,0 +1,48 @@
+﻿.jListView {
+	/*this bottom 2 comment out due to Perfect scroll*/
+	/*display: block;
+	overflow: auto;*/
+	border: 1px solid #c0c0c0;
+	border-radius: 5px;
+	margin: 5px 0;
+	outline: 1px;
+	/*this bottom 2 is for Perfect scroll*/
+	/*overflow: hidden;
+	position: relative;*/
+}
+
+div.jListView:focus { outline: none; border-color: #9ecaed; box-shadow: 0 0 10px #9ecaed; border-radius: 5px; }
+
+.jListOption {
+	display: block;
+	width: auto;
+	padding: 4px 0 4px 5px;
+}
+
+.jListOption:hover {
+	background-color: #9ecaed;
+}
+
+.jListOptItem {
+	display: inline-block;
+}
+
+.jListItemSelected {
+	background-color: #778899;
+}
+
+/*Scrollbar*/
+/*.jListView::-webkit-scrollbar { width:16px; background-color:#cccccc; }
+.jListView::-webkit-scrollbar-thumb { background-color: #40e0d0; border-radius:10px; }
+.jListView::-webkit-scrollbar-thumb:hover { background-color: #9ecaed; border: 1px solid #333333; }
+.jListView::-webkit-scrollbar-thumb:active{ background-color: #00bfff; border:1px solid #333333; } 
+
+.jListView {
+    scrollbar-3dlight-color:gold;
+    scrollbar-arrow-color:blue;
+    scrollbar-base-color: blue;
+    scrollbar-darkshadow-color:blue;
+    scrollbar-face-color: blue;
+    scrollbar-highlight-color: blue;
+    scrollbar-shadow-color: blue
+}*/
